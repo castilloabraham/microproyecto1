@@ -9,7 +9,7 @@
 <body>
     <!-- Pagina de inicio -->
     <div class="pg-title" id="pgTitle">
-        <button class="points">Top 5 - Puntaje</button>
+        <button class="points" id="top5">Top 5 - Puntaje</button>
         <div class="centro">
             <h1 class="title-game">El Bingo de tu Abuela</h1>
             <button class="new-game" id="newGame">Nuevo Juego</button>
@@ -19,107 +19,156 @@
     <!-- Pagina de registro  -->
     <div class="pg-home oculto" id="pgHome">
         <h1 class="title-game-general">El Bingo de tu Abuela</h1>
-        
-        <div class="row cuerpo-config">
-            <div class="col-4 col-t-12 t-carton">
-                <label for="player1" class="form-label">Tamaño del carton:</label>
-                <select class="form-select" id="size" required="">
-                    <option value="">Elegir...</option>
-                    <option>3x3</option>
-                    <option>4x4</option>
-                    <option>5x5</option>
-                </select>
+        <!--  <form id="formulario"> -->
+            <div class="row cuerpo-config">
+                <div class="col-4 col-t-12 t-carton">
+                    <label for="player1" class="form-label">Tamaño del carton:</label>
+                    <select class="form-select" id="size" >
+                        <option value="">Elegir...</option>
+                        <option value="3">3x3</option>
+                        <option value="4">4x4</option>
+                        <option value="5">5x5</option>
+                    </select>
+                </div>
+                
+                <div class="col-8 col-t-12 row nombres">
+                    <div class="col-6 col-t-12">
+                        <label for="player1" class="form-label">Jugador 1:</label>
+                        <input type="text" class="form-control" id="player1" placeholder="Ingresa nombre del J1:" value="" >
+                    </div>
+                    <div class="col-6 col-t-12">
+                        <label for="player2" class="form-label">Jugador 2:</label>
+                        <input type="text" class="form-control" id="player2" placeholder="Ingresa nombre del J2:" value="" >
+                    </div>
+                    <div class="col-6 col-t-12">
+                        <label for="player3" class="form-label">Jugador 3:</label>
+                        <input type="text" class="form-control" id="player3" placeholder="Ingresa nombre del J3:" value="" >
+                    </div>
+                    <div class="col-6 col-t-12">
+                        <label for="player4" class="form-label">Jugador 4:</label>
+                        <input type="text" class="form-control" id="player4" placeholder="Ingresa nombre del J4:" value="" >
+                    </div>
+                </div>
             </div>
-            
-            <div class="col-8 col-t-12 row nombres">
-                <div class="col-6 col-t-12">
-                    <label for="player1" class="form-label">Jugador 1:</label>
-                    <input type="text" class="form-control" id="player1" placeholder="Ingresa nombre del J1:" value="" required="">
-                </div>
-                <div class="col-6 col-t-12">
-                    <label for="player2" class="form-label">Jugador 2:</label>
-                    <input type="text" class="form-control" id="player2" placeholder="Ingresa nombre del J2:" value="" required="">
-                </div>
-                <div class="col-6 col-t-12">
-                    <label for="player3" class="form-label">Jugador 3:</label>
-                    <input type="text" class="form-control" id="player3" placeholder="Ingresa nombre del J3:" value="" required="">
-                </div>
-                <div class="col-6 col-t-12">
-                    <label for="player4" class="form-label">Jugador 4:</label>
-                    <input type="text" class="form-control" id="player4" placeholder="Ingresa nombre del J4:" value="" required="">
-                </div>
-            </div>
-        </div>
-        <button class="start-game" id="startGame">Iniciar Juego</button>
-
+            <button class="start-game" id="startGame">Iniciar Juego</button>
+        <!--  </form> -->
     </div>
     
 
     <!-- Pagina de juego -->
     <div class="pg-juego oculto" id="pgJuego">
         <div class="row">
-            <div class="col-4">
-                <div>
-                    <h3>Ronda nº:</h3>
-                    <h1 id="contador">0</h1>
-                </div>
-                <div>
+            <div class="col-4 col-t-12">
                     <h4>Puntaje:</h4>
-                    <table class="table-points">
-                        <tr>
-                            <th>Jugador</th>
-                            <th>Puntaje</th>
-                        </tr>
-                        <tr>
-                            <td>Jugador 1</td>
-                            <td>5 pts</td>
-                        </tr>
-                        <tr>
-                            <td>Jugador 1</td>
-                            <td>5 pts</td>
-                        </tr>
-                        <tr>
-                            <td>Jugador 1</td>
-                            <td>5 pts</td>
-                        </tr>
-                        <tr>
-                            <td>Jugador 1</td>
-                            <td>5 pts</td>
-                        </tr>
-
-                    </table>
-                </div>
+                    <div class="cuadros">
+                        <div class="cuadro-interno">
+                            <div class="nombre" id="puntosNombreJugador1">Jugador 1</div>
+                            <div class="puntos">
+                                <div id="puntosJ1">0</div>puntos
+                            </div>
+                        </div>
+                        <div class="cuadro-interno">
+                            <div class="nombre" id="puntosNombreJugador2">Jugador 1</div>
+                            <div class="puntos">
+                                <div id="puntosJ2">0</div> puntos
+                            </div>
+                        </div>
+                        <div class="cuadro-interno">
+                            <div class="nombre" id="puntosNombreJugador3">Jugador 1</div>
+                            <div class="puntos">
+                                <div id="puntosJ3">0</div>puntos
+                            </div>
+                        </div>
+                        <div class="cuadro-interno">
+                            <div class="nombre" id="puntosNombreJugador4">Jugador 1</div>
+                            <div class="puntos">
+                                <div id="puntosJ4">0</div>puntos
+                            </div>
+                        </div>
+                    </div>
             </div>
-            <div class="col-4">
+            <div class="col-4 col-t-6">
                 <h2>Ultimo Número</h2>
-                <h1 id="lastNumber">05</h1>
+                <h1 id="lastNumber">00</h1>
                 <button class="new-number" id="newNumber">Nuevo número</button>
             </div>
-            <div class="col-4">
-                
+            <div class="col-4 col-t-6">
+                <h3>Ronda nº:</h3>
+                <h1 id="contador">0</h1>
             </div>
 
         </div>
-        <div class="row">
+        <div>
+            <label for="player1" class="form-label">Tamaño del carton:</label>
+            <select class="form-select" id="size" >
+                <option value="">Elegir...</option>
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+            </select>
+        </div>
+        <div class="row cartones">
+
+            <div class="carton" id="carton">
+                <p class="nombre-jugador" id="cartonNombreJugador1">Jugador 1</p>
+                <div class="mini-grid" id="grid1">
+                </div>
+            </div>
+            <div class="carton" id="carton">
+                <p class="nombre-jugador" id="cartonNombreJugador2">Jugador 2</p>
+                <div class="mini-grid" id="grid2">
+                </div>
+            </div>
+            <div class="carton" id="carton">
+                <p class="nombre-jugador" id="cartonNombreJugador3">Jugador 3</p>
+                <div class="mini-grid" id="grid3">
+                </div>
+            </div>
+            <div class="carton" id="carton">
+                <p class="nombre-jugador" id="cartonNombreJugador4">Jugador 2</p>
+                <div class="mini-grid" id="grid4">
+                </div>
+            </div>
+        </div>
 
         
-            <div class="col-4 carton">
-                <div class="grid">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>6</div>
-                    <div>7</div>
-                    <div>8</div>
-                    <div>9</div>
+
+    </div>
+    <div class="modal fade oculto" id="pgCierre">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h2>Fin del juego</h2>
+                <h3>Puntuación:</h3>
+                <div class="lugares">
+                    <ol id="puntos">
+                        
+                    </ol>
                 </div>
+                <div class="botones">
+                    <!-- <button class="" id="Home">Ir a Home</button>
+                    -->
+                    <!-- <button class="" id="Reset">Volver a jugar</button>
+                    -->
+                </div>
+        
             </div>
         </div>
     </div>
-    
-
+    <div class="modal fade oculto" id="pgRecords">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button class="" id="Cerrar">X</button>
+                <h2>Top 10</h2>
+                <h3>Puntuación:</h3>
+                <ol id="top-puntos">
+                    
+                </ol>
+                
+        
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
