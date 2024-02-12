@@ -18,6 +18,54 @@ document.getElementById('Cerrar').addEventListener('click', function() {
 
 document.getElementById('top5').addEventListener('click', function() {
     document.getElementById('pgRecords').classList.remove('oculto');
+    
+    let top5 = [];
+    for (let i = 0; i < 6; i++){
+        let jugador = "jugador" + i;
+
+        top5.push(JSON.parse(localStorage.getItem(jugador)));
+    }
+    if(localStorage.getItem('jugador6') != null){
+        top5.push(JSON.parse(localStorage.getItem('jugador6')));
+    }
+
+    //elimina el primer elemento que es null
+    top5.shift()
+
+    
+    top5.sort((a, b) => {
+        // Compara los números en la segunda posición de los subarrays
+        return b[1] - a[1];
+    });
+
+    if (top5.length > 5){
+        top5.pop()
+    }
+
+    localStorage.clear()
+    for (let i = 1; i < 6; i++){
+        let jugador = "jugador" + i;
+        localStorage.setItem(jugador, JSON.stringify(top5[i-1]));
+    }
+
+
+    for (let i = 0; i < 5; i++) {
+        let li = document.createElement('li');
+        let span = document.createElement('span');
+        let spanInterno = document.createElement('span');
+
+        //console.log(listad[i][0], listad[i][1])
+        spanInterno.textContent = top5[i][1]+ "pts";
+        span.textContent = top5[i][0]+ " ";
+
+
+        span.appendChild(spanInterno);
+        li.appendChild(span);
+        let punto = document.getElementById("top-puntos")
+        punto.appendChild(li);
+    }
+
+    
 });
 
 
@@ -330,7 +378,7 @@ function culminarJuego(){
     //console.log(localStorage.getItem('jugador5'))
     if (listad[0][1] > JSON.parse(localStorage.getItem('jugador5'))[1]){
         localStorage.setItem("jugador6", JSON.stringify(listad[0]));
-        console.log("añadido")
+        //console.log("añadido")
     }
 
     
