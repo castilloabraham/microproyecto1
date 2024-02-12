@@ -115,11 +115,11 @@ document.getElementById('startGame').addEventListener('click', function(){
         
     
         // Mostrar la matriz
-        console.log(`Matriz ${i + 1}:`);
+        //console.log(`Matriz ${i + 1}:`);
+        /*
         matriz.forEach((fila) => {
             console.log(fila);
-        });
-        console.log();
+        });*/
 
         matrices.push(matriz);
     }
@@ -220,7 +220,7 @@ function validarHorizontal(coordenadaY, matrizRevisar){
 function validarDiagonales(coordenadaX, coordenadaY, matrizRevisar){
     if(coordenadaX == coordenadaY || coordenadaX+1 + coordenadaY+1 == size.value+1){
 
-        console.log(coordenadaX, coordenadaY);
+        //console.log(coordenadaX, coordenadaY);
         let contador = 0;
         for (let i = 0; i < size.value; i++){
             if (matrices[matrizRevisar][i][i][1] == true){
@@ -404,10 +404,10 @@ function crearMatriz(n) {
         for (let j = 0; j < n; j++) {
             // Obtener un índice aleatorio de la lista
             let indiceAleatorio = generarNumeroAleatorio();
-            console.log(numeros);
-            console.log(indiceAleatorio);
+            //console.log(numeros);
+            //console.log(indiceAleatorio);
             while (numeros.includes(indiceAleatorio)) {
-                console.log("entro");
+                
                 indiceAleatorio = generarNumeroAleatorio();
             }
             // Agregar el número aleatorio a la fila
@@ -435,7 +435,7 @@ document.getElementById('newNumber').addEventListener('click', function() {
     // Lista para almacenar los números aleatorios
 
         rondas = rondas +1
-        console.log(rondas);
+        //console.log(rondas);
         document.getElementById('contador').textContent = rondas;
 
         //Genera los numeros aleatorios
@@ -453,7 +453,7 @@ document.getElementById('newNumber').addEventListener('click', function() {
         //console.log(numero);
         tieneNumero(numero);
 
-        if(rondas == 50){
+        if(rondas == 25){
             culminarJuego();
             
         }
