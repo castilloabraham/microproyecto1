@@ -1,4 +1,5 @@
-if (localStorage.key(0) === null) {
+if (localStorage.key(0) == null || (localStorage.getItem('jugador1') == null && localStorage.getItem('jugador2') == null && localStorage.getItem('jugador3') == null && localStorage.getItem('jugador4') == null && localStorage.getItem('jugador5') == null)) {
+    localStorage.clear()
     localStorage.setItem("jugador1", JSON.stringify(['Pedro',11]));
     localStorage.setItem("jugador2", JSON.stringify(['Juan',7]));
     localStorage.setItem("jugador3", JSON.stringify(['Maria',5]));
