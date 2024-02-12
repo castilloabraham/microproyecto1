@@ -98,34 +98,36 @@
             </div>
 
         </div>
-        <div>
-            <label for="player1" class="form-label">Tamaño del carton:</label>
-            <select class="form-select" id="size" >
-                <option value="">Elegir...</option>
-                <option value="1"></option>
-                <option value="2"></option>
-                <option value="3"></option>
-                <option value="4"></option>
-            </select>
+        <div class="seleccion-carton row">
+            <div class="caja-select">
+                <label for="player1" class="form-label">Visualizar carton de:</label>
+ 
+                <select class="form-select" id="vista" >
+                    <option value="1" id="selectJugador1"></option>
+                    <option value="2" id="selectJugador2"></option>
+                    <option value="3" id="selectJugador3"></option>
+                    <option value="4" id="selectJugador4"></option>
+                </select>
+            </div>
         </div>
         <div class="row cartones">
 
-            <div class="carton" id="carton">
+            <div class="carton " id="carton1">
                 <p class="nombre-jugador" id="cartonNombreJugador1">Jugador 1</p>
                 <div class="mini-grid" id="grid1">
                 </div>
             </div>
-            <div class="carton" id="carton">
+            <div class="carton oculto" id="carton2">
                 <p class="nombre-jugador" id="cartonNombreJugador2">Jugador 2</p>
                 <div class="mini-grid" id="grid2">
                 </div>
             </div>
-            <div class="carton" id="carton">
+            <div class="carton oculto" id="carton3">
                 <p class="nombre-jugador" id="cartonNombreJugador3">Jugador 3</p>
                 <div class="mini-grid" id="grid3">
                 </div>
             </div>
-            <div class="carton" id="carton">
+            <div class="carton oculto" id="carton4">
                 <p class="nombre-jugador" id="cartonNombreJugador4">Jugador 2</p>
                 <div class="mini-grid" id="grid4">
                 </div>
@@ -148,8 +150,8 @@
                 <div class="botones">
                     <!-- <button class="" id="Home">Ir a Home</button>
                     -->
-                    <!-- <button class="" id="Reset">Volver a jugar</button>
-                    -->
+                    <button class="" id="Reset">Volver a jugar</button>
+                    
                 </div>
         
             </div>

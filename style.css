@@ -202,7 +202,16 @@ button{
 .pg-juego .mini-grid .seleccionado{
     background-color: #5ed889;
 }
+.seleccion-carton{
+    margin: 5% 0;
+}
 
+.caja-select{
+    width: 40%;
+}
+#vista{
+    width: 100%;
+}
 
 
 .modal {

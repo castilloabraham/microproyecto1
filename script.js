@@ -51,10 +51,10 @@ document.getElementById('startGame').addEventListener('click', function(){
     }
 
     
-    cartonNombreJugador1.textContent = puntosNombreJugador1.textContent = player1.value;
-    cartonNombreJugador2.textContent = puntosNombreJugador2.textContent = player2.value;
-    cartonNombreJugador3.textContent = puntosNombreJugador3.textContent = player3.value;
-    cartonNombreJugador4.textContent = puntosNombreJugador4.textContent = player4.value;
+    cartonNombreJugador1.textContent = puntosNombreJugador1.textContent = selectJugador1.textContent = player1.value;
+    cartonNombreJugador2.textContent = puntosNombreJugador2.textContent = selectJugador2.textContent = player2.value;
+    cartonNombreJugador3.textContent = puntosNombreJugador3.textContent = selectJugador3.textContent = player3.value;
+    cartonNombreJugador4.textContent = puntosNombreJugador4.textContent = selectJugador4.textContent = player4.value;
     
     
     let sizeGrid = `repeat(${size.value}, 1fr)`;
@@ -386,6 +386,37 @@ document.getElementById('newNumber').addEventListener('click', function() {
 
 });
 
+
+document.querySelector('#vista').addEventListener('change', () => {
+    const selectedValue = document.querySelector('#vista').value;
+    if (selectedValue == 1){
+        document.getElementById('carton1').classList.remove('oculto');
+        document.getElementById('carton2').classList.add('oculto');
+        document.getElementById('carton3').classList.add('oculto');
+        document.getElementById('carton4').classList.add('oculto');
+
+    }else if (selectedValue == 2){
+        document.getElementById('carton1').classList.add('oculto');
+        document.getElementById('carton2').classList.remove('oculto');
+        document.getElementById('carton3').classList.add('oculto');
+        document.getElementById('carton4').classList.add('oculto');
+
+    }else if (selectedValue == 3){
+        document.getElementById('carton1').classList.add('oculto');
+        document.getElementById('carton2').classList.add('oculto');
+        document.getElementById('carton3').classList.remove('oculto');
+        document.getElementById('carton4').classList.add('oculto');
+    }else if (selectedValue == 4){
+        document.getElementById('carton1').classList.add('oculto');
+        document.getElementById('carton2').classList.add('oculto');
+        document.getElementById('carton3').classList.add('oculto');
+        document.getElementById('carton4').classList.remove('oculto');
+    }
+        
+
+});
+
+/*
 document.getElementById('Home').addEventListener('click', function() {
     rondas = 0;
     document.getElementById('contador').textContent = rondas;
@@ -416,5 +447,8 @@ document.getElementById('Reset').addEventListener('click', function() {
 
 
 });
-
+*/
+document.getElementById('Reset').addEventListener('click', function() {
+    location.reload();
+});
 
