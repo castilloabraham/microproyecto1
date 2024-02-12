@@ -358,6 +358,9 @@ function culminarJuego(){
     });
 
 
+    let contador = 0
+    let numeros=[]
+    let puntos=[]
     for (let i = 0; i < 4; i++) {
         let li = document.createElement('li');
         let span = document.createElement('span');
@@ -365,7 +368,17 @@ function culminarJuego(){
 
         //console.log(listad[i][0], listad[i][1])
         spanInterno.textContent = listad[i][1]+ "pts";
-        span.textContent = listad[i][0]+ " ";
+    
+        if (puntos.includes(listad[i][1])){
+            span.textContent = contador +"."+listad[i][0]+ " ";
+            numeros.push(i+1)
+            puntos.push(listad[i][1])
+        }else {
+            span.textContent = contador+1 +"."+listad[i][0]+ " ";
+            numeros.push(contador+1)
+            contador = contador +1
+            puntos.push(listad[i][1])
+        }
 
 
         span.appendChild(spanInterno);
