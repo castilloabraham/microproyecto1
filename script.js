@@ -24,6 +24,22 @@ document.getElementById('top5').addEventListener('click', function() {
 
 //Te cambia la pantalla de la config a el juego
 document.getElementById('startGame').addEventListener('click', function(){
+    // Verificar si los campos de texto están vacíos
+    let inputs = document.querySelectorAll('.nombres input');
+    let todosLosCamposCompletos = true;
+    for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].value.trim() === '') {
+            todosLosCamposCompletos = false;
+            break;
+        }
+    }
+
+    if (!todosLosCamposCompletos) {
+        // Mostrar mensaje de error
+        alert('Por favor, complete todos los campos de texto antes de iniciar el juego.');
+        return;
+    }
+    
     // Ocultar el primer div
     document.getElementById('pgHome').classList.remove('visible');
     document.getElementById('pgHome').classList.add('oculto');
