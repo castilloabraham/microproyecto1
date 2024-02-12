@@ -1,3 +1,11 @@
+if (localStorage.key(0) === null) {
+    localStorage.setItem("jugador1", JSON.stringify(['Pedro',11]));
+    localStorage.setItem("jugador2", JSON.stringify(['Juan',7]));
+    localStorage.setItem("jugador3", JSON.stringify(['Maria',5]));
+    localStorage.setItem("jugador4", JSON.stringify(['Petra',4]));
+    localStorage.setItem("jugador5", JSON.stringify(['Ana',0]));
+}
+
 let matrices = [];
 
 //Te cambia la pantalla del home a la config
@@ -372,6 +380,7 @@ function culminarJuego(){
         let punto = document.getElementById("puntos")
         punto.appendChild(li);
     }
+    
     
 
     //console.log(listad[0][1])
