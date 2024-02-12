@@ -8,6 +8,7 @@ document.getElementById('newGame').addEventListener('click', function() {
     // Mostrar el segundo div
     document.getElementById('pgHome').classList.remove('oculto');
     document.getElementById('pgHome').classList.add('visible');
+
 });
 
 document.getElementById('Cerrar').addEventListener('click', function() {
@@ -39,7 +40,7 @@ document.getElementById('startGame').addEventListener('click', function(){
         alert('Por favor, complete todos los campos de texto antes de iniciar el juego.');
         return;
     }
-    
+
     // Ocultar el primer div
     document.getElementById('pgHome').classList.remove('visible');
     document.getElementById('pgHome').classList.add('oculto');
@@ -216,22 +217,22 @@ function sumarPuntos(tipoPunto, jugador){
         if(jugador == 0){
             
             puntosJ1.textContent = parseInt(puntosJ1.textContent)+puntaje;
-            console.log(puntosJ1.textContent);console.log(puntosJ1.textContent);
+            //console.log(puntosJ1.textContent);console.log(puntosJ1.textContent);
         }
         else if(jugador == 1){
             
             puntosJ2.textContent = parseInt(puntosJ2.textContent)+puntaje;
-            console.log(puntosJ2.textContent);console.log(puntosJ2.textContent);
+            //console.log(puntosJ2.textContent);console.log(puntosJ2.textContent);
         }
         else if(jugador == 2){
             
             puntosJ3.textContent = parseInt(puntosJ3.textContent)+puntaje;
-            console.log(puntosJ3.textContent);console.log(puntosJ3.textContent);
+            //console.log(puntosJ3.textContent);console.log(puntosJ3.textContent);
         }
         else if(jugador == 3){
             
             puntosJ4.textContent = parseInt(puntosJ4.textContent)+puntaje;
-            console.log(puntosJ4.textContent);console.log(puntosJ4.textContent);
+            //console.log(puntosJ4.textContent);console.log(puntosJ4.textContent);
         }
     }
     else if (tipoPunto == "h"){
@@ -313,9 +314,9 @@ function culminarJuego(){
         let span = document.createElement('span');
         let spanInterno = document.createElement('span');
 
-        console.log(listad[i][0], listad[i][1])
-        spanInterno.textContent = listad[i][1];
-        span.textContent = listad[i][0];
+        //console.log(listad[i][0], listad[i][1])
+        spanInterno.textContent = listad[i][1]+ "pts";
+        span.textContent = listad[i][0]+ " ";
 
 
         span.appendChild(spanInterno);
@@ -323,7 +324,16 @@ function culminarJuego(){
         let punto = document.getElementById("puntos")
         punto.appendChild(li);
     }
+    
 
+    //console.log(listad[0][1])
+    //console.log(localStorage.getItem('jugador5'))
+    if (listad[0][1] > JSON.parse(localStorage.getItem('jugador5'))[1]){
+        localStorage.setItem("jugador6", JSON.stringify(listad[0]));
+        console.log("añadido")
+    }
+
+    
 
 
 }
