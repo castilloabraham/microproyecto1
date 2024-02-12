@@ -182,7 +182,7 @@ function tieneNumero(ultimoNumero){
 
                     validarVertical(coordenadaX, matrizRevisar);
                     validarHorizontal(coordenadaY, matrizRevisar);
-                    //validarDiagonales(coordenadaX, coordenadaY, matrizRevisar);
+                    validarDiagonales(coordenadaX, coordenadaY, matrizRevisar);
                     validarTodos(matrizRevisar);
                 }
             }
@@ -222,32 +222,25 @@ function validarDiagonales(coordenadaX, coordenadaY, matrizRevisar){
 
         console.log(coordenadaX, coordenadaY);
         let contador = 0;
+        for (let i = 0; i < size.value; i++){
+            if (matrices[matrizRevisar][i][i][1] == true){
+
+                contador = contador +1;
+            }
+        }
         for (let j = 0; j < size.value; j++){
-            //console.log(j+"!!!!!!");
             for (let i = 0; i < size.value; i++){
-                if (matrices[matrizRevisar][j][j][1] == true){
-                    console.log("paso");
-                    console.log(matrices[matrizRevisar][j][j][0]+"!!!!!!");
-                    console.log(matrices[matrizRevisar][j][j][1]);
-                    contador = contador +1;
-                }else if(matrices[matrizRevisar][j][i][1] == true && i+j == size.value+1){
-                    console.log("paso2");
-                    console.log(matrices[matrizRevisar][j][i][0]+"!!!!!!");
-                    console.log(matrices[matrizRevisar][j][i][1]);
-                    contador = contador +1;
-                }else if(matrices[matrizRevisar][i][j][1] == true && i+j == size.value+1){
-                    console.log("paso3");
-                    console.log(matrices[matrizRevisar][i][j][0]+"!!!!!!");
-                    console.log(matrices[matrizRevisar][i][j][1]);
+                if(matrices[matrizRevisar][j][i][1] == true && i+j == size.value-1){
                     contador = contador +1;
                 }
+                
             }
-            break
         }
 
         console.log("Esto es un contador"+contador)
         if ((contador == 8 && size.value == 4) || (contador == (size.value*2)-1)){
             sumarPuntos("d", matrizRevisar);
+            console.log("FUe diagonal")
         }
     }
 
@@ -342,7 +335,6 @@ function sumarPuntos(tipoPunto, jugador){
 }
 
 
-
 function culminarJuego(){
     // Ocultar el primer div
     //document.getElementById('pgJuego').classList.remove('visible');
@@ -395,8 +387,6 @@ function culminarJuego(){
 
 
 }
-
-
 
 
 // Función para generar un número aleatorio del 1 al 50
@@ -463,7 +453,7 @@ document.getElementById('newNumber').addEventListener('click', function() {
         //console.log(numero);
         tieneNumero(numero);
 
-        if(rondas == 25){
+        if(rondas == 50){
             culminarJuego();
             
         }
